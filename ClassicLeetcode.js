@@ -12,7 +12,7 @@
 
 (function () {
 
-  var cfg = {}
+  var cfg = {};
 
   var observeDOM = (function () {
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
@@ -41,6 +41,7 @@
       var e_id = e_list_tr[i].querySelectorAll("td")[1];
       var int_id = parseInt(e_id.innerHTML);
       if (int_id && int_id <= 300) {
+        console.debug("found id<=300:" + e_id.innerHTML);
         e_id.style.backgroundColor = "#ffffd7";
       }
     }
@@ -49,7 +50,7 @@
 
   console.log("Start observing: " + document.getElementById("question-app"));
   observeDOM(document.getElementById("question-app"), function () {
-    console.log("changed: " + document.getElementById("question-app"));
+    console.log("#question-app changed: " + document.getElementById("question-app"));
     setStyle();
   });
 
